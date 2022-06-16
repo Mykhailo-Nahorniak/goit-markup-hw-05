@@ -477,6 +477,7 @@ header .company-logo .secondary-color {
   fill: var(--thumb-color);
   width: 106px;
   height: 60px;
+
   transition-property: fill;
   transition-duration: var(--transition);
   transition-timing-function: var(--cubic);
@@ -591,6 +592,10 @@ header .company-logo .secondary-color {
   border: none;
   border-radius: 4px;
   padding: 6px 22px;
+
+  transition-property: background-color, color, box-shadow;
+  transition-duration: var(--transition);
+  transition-timing-function: var(--cubic);
 }
 
 .filter-btn:hover,
@@ -638,8 +643,14 @@ header .company-logo .secondary-color {
   display: block;
 }
 
-.portfolio-item a:hover,
-.portfolio-item a:focus {
+.portfolio-link {
+  transition-property: box-shadow;
+  transition-duration: var(--transition);
+  transition-timing-function: var(--cubic);
+}
+
+.portfolio-link:hover,
+.portfolio-link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
