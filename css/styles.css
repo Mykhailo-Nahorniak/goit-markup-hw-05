@@ -716,6 +716,7 @@ header .company-logo .secondary-color {
   position: absolute;
   top: 0;
   transform: translateY(100%);
+  overflow: hidden;
 
   transition-property: transform;
   transition-duration: var(--transition);
