@@ -60,7 +60,18 @@
       <section class="hero section hero-img">
         <div class="container">
           <h1 class="hero-title">Эффективные решения для вашего бизнеса</h1>
-          <button type="button" class="hero-btn">Заказать услугу</button>
+          <button type="button" class="hero-btn" data-modal-open>
+            Заказать услугу
+          </button>
+        </div>
+        <div class="backdrop is-hidden" data-modal>
+          <div class="modal">
+            <a href="" class="close-modal link" data-modal-close>
+              <svg>
+                <use href="./images/close1.svg" class="close-btn"></use>
+              </svg>
+            </a>
+          </div>
         </div>
       </section>
       <!-- Features -->
