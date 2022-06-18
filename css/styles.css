@@ -41,9 +41,7 @@ body {
 
 .link {
   text-decoration: none;
-  transition-property: color;
-  transition-duration: var(--transition);
-  transition-timing-function: var(--cubic);
+  transition: color var(--transition) var(--cubic);
 }
 
 h1,
@@ -131,8 +129,8 @@ header .company-logo .secondary-color {
   display: block;
 }
 
-.nav-list-item + .nav-list-item,
-.contact-list-item + .contact-list-item {
+.nav-list-item+.nav-list-item,
+.contact-list-item+.contact-list-item {
   margin-left: 50px;
 }
 
@@ -205,11 +203,9 @@ header .company-logo .secondary-color {
 }
 
 .hero-img {
-  background-image: linear-gradient(
-      to right,
+  background-image: linear-gradient(to right,
       rgba(47, 48, 58, 0.4),
-      rgba(47, 48, 58, 0.4)
-    ),
+      rgba(47, 48, 58, 0.4)),
     url(../images/hero-bg-img.jpg);
   max-width: 1600px;
   height: 600px;
@@ -247,9 +243,8 @@ header .company-logo .secondary-color {
   display: block;
   margin: 0 auto;
   padding: 10px 24px;
-  transition-property: background-color;
-  transition-duration: var(--transition);
-  transition-timing-function: var(--cubic);
+
+  transition: background-color var(--transition) var(--cubic);
 }
 
 .hero-btn:hover,
@@ -327,6 +322,7 @@ header .company-logo .secondary-color {
 .gallery-item {
   position: relative;
 }
+
 .label {
   position: absolute;
   bottom: 0;
@@ -338,6 +334,7 @@ header .company-logo .secondary-color {
   min-height: 70px;
   background-color: rgba(47, 48, 58, 0.8);
 }
+
 .label-text {
   font-weight: 700;
   font-size: 14px;
@@ -427,9 +424,7 @@ header .company-logo .secondary-color {
   border-radius: 50%;
   line-height: 0;
 
-  transition-property: background-color;
-  transition-duration: var(--transition);
-  transition-timing-function: var(--cubic);
+  transition: background-color var(--transition) var(--cubic);
 }
 
 .social-trumb {
@@ -437,9 +432,7 @@ header .company-logo .secondary-color {
   width: 20px;
   fill: var(--thumb-color);
 
-  transition-property: fill;
-  transition-duration: var(--transition);
-  transition-timing-function: var(--cubic);
+  transition: fill var(--transition) var(--cubic);
 }
 
 .connect .social-link {
@@ -488,9 +481,7 @@ header .company-logo .secondary-color {
   border: 1px solid var(--thumb-color);
   border-radius: 4px;
 
-  transition-property: border;
-  transition-duration: var(--transition);
-  transition-timing-function: var(--cubic);
+  transition: border var(--transition) var(--cubic);
 }
 
 .clients-trumb {
@@ -498,9 +489,7 @@ header .company-logo .secondary-color {
   width: 106px;
   height: 60px;
 
-  transition-property: fill;
-  transition-duration: var(--transition);
-  transition-timing-function: var(--cubic);
+  transition: fill var(--transition) var(--cubic);
 }
 
 .clients-link:hover,
@@ -530,6 +519,7 @@ header .company-logo .secondary-color {
   display: inline-block;
   color: var(--footer-secondary-logo-color);
 }
+
 .footer-flex {
   display: flex;
   align-items: baseline;
@@ -581,27 +571,39 @@ header .company-logo .secondary-color {
   color: var(--btn-text-accent-color);
   margin-bottom: 20px;
 }
+
 .connect .social-trumb {
   fill: #fff;
 }
+
 /* ---------------- MODAL ---------------- */
-.backdrop.is-hidden {
-  opacity: 0;
-  pointer-events: none;
-}
+
 .backdrop {
   position: fixed;
   top: 0;
   left: 0;
+
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  transition: opacity var(--transition) var(--cubic);
 }
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.5);
+}
+
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
 
   width: 528px;
   height: 581px;
@@ -611,7 +613,11 @@ header .company-logo .secondary-color {
 
   background-color: var(--body-bg-color);
   padding: 8px;
+
+  transition: transform var(--transition) var(--cubic);
+
 }
+
 .modal-link {
   width: 30px;
   height: 30px;
@@ -621,17 +627,32 @@ header .company-logo .secondary-color {
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 5px;
   margin-left: auto;
+
+  transition: transform var(--transition) var(--cubic);
 }
+
+.modal-link:hover .modal-btn {
+  transform: scale(1.05) rotate(270deg);
+}
+
+.modal-link:hover {
+  transform: scale(1.05)
+}
+
 .modal-btn {
   display: block;
   width: 18px;
   height: 18px;
+
+  transition: transform var(--transition) var(--cubic);
 }
+
 .modal-svg {
   display: block;
   fill: #000000;
   transform-origin: 18px 18px;
 }
+
 /* ---------------- PORTFOLIO PAGE---------------- */
 .filter-list {
   display: flex;
@@ -660,9 +681,7 @@ header .company-logo .secondary-color {
   border-radius: 4px;
   padding: 6px 22px;
 
-  transition-property: background-color, color, box-shadow;
-  transition-duration: var(--transition);
-  transition-timing-function: var(--cubic);
+  transition: background-color, color, box-shadow var(--transition) var(--cubic);
 }
 
 .filter-btn:hover,
@@ -706,10 +725,12 @@ header .company-logo .secondary-color {
 .portfolio-item:nth-last-child(-n + 3) {
   margin-bottom: 0;
 }
+
 .portfolio-wrap {
   position: relative;
   overflow: hidden;
 }
+
 .portfolio-overlay {
   display: flex;
   align-items: center;
@@ -718,9 +739,7 @@ header .company-logo .secondary-color {
   transform: translateY(100%);
   overflow: hidden;
 
-  transition-property: transform;
-  transition-duration: var(--transition);
-  transition-timing-function: var(--cubic);
+  transition: transform var(--transition) var(--cubic);
 
   width: 100%;
   height: 100%;
@@ -728,6 +747,7 @@ header .company-logo .secondary-color {
   padding: 24px;
   color: var(--btn-text-accent-color);
 }
+
 .overlay-description {
   font-family: 'Roboto';
   font-style: normal;
@@ -739,9 +759,7 @@ header .company-logo .secondary-color {
 
 .portfolio-link {
   display: block;
-  transition-property: box-shadow;
-  transition-duration: var(--transition);
-  transition-timing-function: var(--cubic);
+  transition: box-shadow var(--transition) var(--cubic);
 }
 
 .portfolio-link:hover,
