@@ -129,8 +129,8 @@ header .company-logo .secondary-color {
   display: block;
 }
 
-.nav-list-item+.nav-list-item,
-.contact-list-item+.contact-list-item {
+.nav-list-item + .nav-list-item,
+.contact-list-item + .contact-list-item {
   margin-left: 50px;
 }
 
@@ -174,7 +174,7 @@ header .company-logo .secondary-color {
 
 .link:hover .icon-hover,
 .link:focus .icon-hover {
-  fill: var(--accent-color);
+  fill: currentColor;
 }
 
 .link.current {
@@ -203,9 +203,11 @@ header .company-logo .secondary-color {
 }
 
 .hero-img {
-  background-image: linear-gradient(to right,
+  background-image: linear-gradient(
+      to right,
       rgba(47, 48, 58, 0.4),
-      rgba(47, 48, 58, 0.4)),
+      rgba(47, 48, 58, 0.4)
+    ),
     url(../images/hero-bg-img.jpg);
   max-width: 1600px;
   height: 600px;
@@ -615,7 +617,6 @@ header .company-logo .secondary-color {
   padding: 8px;
 
   transition: transform var(--transition) var(--cubic);
-
 }
 
 .modal-link {
@@ -627,6 +628,8 @@ header .company-logo .secondary-color {
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 5px;
   margin-left: auto;
+  cursor: pointer;
+  background-color: transparent;
 
   transition: transform var(--transition) var(--cubic);
 }
@@ -636,7 +639,7 @@ header .company-logo .secondary-color {
 }
 
 .modal-link:hover {
-  transform: scale(1.05)
+  transform: scale(1.05);
 }
 
 .modal-btn {
@@ -681,7 +684,9 @@ header .company-logo .secondary-color {
   border-radius: 4px;
   padding: 6px 22px;
 
-  transition: background-color, color, box-shadow var(--transition) var(--cubic);
+  transition: background-color var(--transition) var(--cubic),
+    color var(--transition) var(--cubic),
+    box-shadow var(--transition) var(--cubic);
 }
 
 .filter-btn:hover,
@@ -736,7 +741,7 @@ header .company-logo .secondary-color {
   align-items: center;
   position: absolute;
   top: 0;
-  transform: translateY(100%);
+  transform: translateY(101%);
   overflow: hidden;
 
   transition: transform var(--transition) var(--cubic);
